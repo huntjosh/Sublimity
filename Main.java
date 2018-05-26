@@ -7,7 +7,7 @@ import java.util.Timer;
 
 public class Main {
 	public static void main(String[] args) {
-		IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), new ConsoleLogger(), new StubScheduleChecker());
+		IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), new StubScheduleChecker(), new ConsoleLogger());
 		integrationManager.spawnWorkerPool(10);
 		Timer t = new Timer();
 		t.scheduleAtFixedRate(integrationManager, 0, 100);

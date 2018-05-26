@@ -22,8 +22,8 @@ t.scheduleAtFixedRate(integrationRunner, 0, 1000);
 Multi threaded
 ```java
 IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), 
-                                                                new ConsoleLogger(), 
-                                                                new StubScheduleChecker());
+                                                                new StubScheduleChecker(), 
+                                                                new ConsoleLogger());
 integrationManager.spawnWorkerPool(10);
 Timer t = new Timer();
 t.scheduleAtFixedRate(integrationManager, 0, 100);

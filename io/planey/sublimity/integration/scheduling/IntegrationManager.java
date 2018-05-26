@@ -30,7 +30,7 @@ public class IntegrationManager extends TimerTask {
 	 * @param integration the list of integrations to be checked for running
 	 * @param logger the logger for runtime logging
 	 */
-	public IntegrationManager(Integration integration, Logger logger, ScheduleChecker scheduleChecker) {
+	public IntegrationManager(Integration integration, ScheduleChecker scheduleChecker , Logger logger) {
 		logger.debug(integration.name() + " setting up");
 		this.integration = integration;
 		this.logger = logger;
