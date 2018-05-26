@@ -8,6 +8,7 @@ integrations between any mixture of sources such as: Files, APIs, Databases, etc
 Note: This project is still heavily under development and is only in early stages.
 ## Example usage
 
+Single threaded
 ```java
 List<Integration> integrations = new ArrayList<>();
 integrations.add(new PeopleEmployee());
@@ -16,6 +17,16 @@ IntegrationRunner integrationRunner = new IntegrationRunner(integrations,
                                                             new ConsoleLogger());
 Timer t = new Timer();
 t.scheduleAtFixedRate(integrationRunner, 0, 1000);
+```
+
+Multi threaded
+```java
+IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), 
+                                                                new ConsoleLogger(), 
+                                                                new StubScheduleChecker());
+integrationManager.spawnWorkerPool(10);
+Timer t = new Timer();
+t.scheduleAtFixedRate(integrationManager, 0, 100);
 ```
 
 ## Versioning

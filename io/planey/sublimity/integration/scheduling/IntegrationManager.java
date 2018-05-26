@@ -5,6 +5,8 @@ import io.planey.sublimity.integration.mapping.Integration;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.ListIterator;
+import java.util.TimerTask;
 import java.util.concurrent.*;
 
 /**
@@ -13,9 +15,10 @@ import java.util.concurrent.*;
  * @since 0.1
  * @author Josh Hunt
  */
-public class IntegrationManager {
+public class IntegrationManager extends TimerTask {
 	private final Integration integration;
 	private final Logger logger;
+	private final ScheduleChecker scheduleChecker;
 
 	private int workerCount = 0;
 	private List<Future> futures = new ArrayList<>();
@@ -27,16 +30,19 @@ public class IntegrationManager {
 	 * @param integration the list of integrations to be checked for running
 	 * @param logger the logger for runtime logging
 	 */
-	public IntegrationManager(Integration integration, Logger logger) {
+	public IntegrationManager(Integration integration, Logger logger, ScheduleChecker scheduleChecker) {
 		logger.debug(integration.name() + " setting up");
 		this.integration = integration;
 		this.logger = logger;
+		this.scheduleChecker = scheduleChecker;
 	}
 
 	/**
 	 * Clears completed futures and queues up integration runs based on the free worker count.
 	 */
 	public void run() {
+		if (!scheduleChecker.isReady(integration.name())) return;
+
 		logger.debug(integration.name() + " running");
 		clearCompleteFutures();
 		logger.debug(integration.name() + " free worker count: " + freeWorkers());
@@ -47,10 +53,12 @@ public class IntegrationManager {
 	 * Clears futures which are complete.
 	 */
 	private void clearCompleteFutures() {
-		futures.forEach(future -> {
+		ListIterator<Future> iterator = futures.listIterator();
+		if (iterator.hasNext()) {
+			Future future = iterator.next();
 			logger.debug("Attempting to clear future ");
 			if (future.isDone()) futures.remove(future);
-		});
+		}
 	}
 
 	/**

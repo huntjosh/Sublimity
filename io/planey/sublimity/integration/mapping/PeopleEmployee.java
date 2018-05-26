@@ -23,7 +23,7 @@ public class PeopleEmployee implements Integration {
 	}
 
 	public String name() {
-		return this.getClass().toString();
+		return "PeopleEmployee";
 	}
 
 	private Employee mapPersonToEmployee(Person person) {
