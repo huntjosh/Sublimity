@@ -54,10 +54,11 @@ public class IntegrationManager extends TimerTask {
 	 */
 	private void clearCompleteFutures() {
 		ListIterator<Future> iterator = futures.listIterator();
-		if (iterator.hasNext()) {
-			Future future = iterator.next();
+		Future future;
+		while (iterator.hasNext()) {
+			future = iterator.next();
 			logger.debug("Attempting to clear future ");
-			if (future.isDone()) futures.remove(future);
+			if (future.isDone()) iterator.remove();
 		}
 	}
 
@@ -66,7 +67,8 @@ public class IntegrationManager extends TimerTask {
 	 *
 	 * @return the number of slacking off workers
 	 */
-	private int freeWorkers() { return workerCount - futures.size(); }
+	private int freeWorkers() {
+		return workerCount - futures.size(); }
 
 	/**
 	 * Creates a number of integration run runnables which are added to the executor queue.
