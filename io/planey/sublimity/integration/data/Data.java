@@ -1,17 +1,19 @@
-package io.planey.sublimity.integration.application;
+package io.planey.sublimity.integration.data;
+
+import io.planey.sublimity.integration.data.connector.DataConnector;
 
 import java.util.List;
 
 /**
- * Parses data from {@link io.planey.sublimity.integration.application.connector.Connector}s, pushes data, and
+ * Parses data from {@link DataConnector}s, pushes data, and
  * identifies if there is outstanding changes.
  *
  * @since 0.1
  * @author Josh Hunt
  */
-public interface Application<T> {
+public interface Data<T> {
 	/**
-	 * Returns if the application has outstanding changes.
+	 * Returns if the data has outstanding changes.
 	 *
 	 * @return has changes
 	 */
@@ -25,7 +27,7 @@ public interface Application<T> {
 	List<T> getChanges();
 
 	/**
-	 * Pushes a list of {@link T} to the application.
+	 * Pushes a list of {@link T} to the data.
 	 *
 	 * @param changes the {@link T} list
 	 */

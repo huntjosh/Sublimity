@@ -1,8 +1,7 @@
-package io.planey.sublimity;
+package io.planey.sublimity.integration.scheduling;
 
 import io.planey.logger.Logger;
 import io.planey.sublimity.integration.mapping.Integration;
-import io.planey.sublimity.integration.scheduling.ScheduleChecker;
 
 import java.util.List;
 import java.util.TimerTask;

@@ -1,4 +1,4 @@
-package io.planey.sublimity.integration.application;
+package io.planey.sublimity.integration.data;
 
 import io.planey.sublimity.integration.datamodel.Employee;
 
@@ -6,15 +6,15 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * An {@link Application} that gets and posts {@link Employee}s to the employee application.
+ * An {@link Data} that gets and posts {@link Employee}s to the employee data.
  *
  * @since 0.1
  * @author Josh Hunt
  */
-public class Employees implements Application<Employee> {
+public class Employees implements Data<Employee> {
 
 	/**
-	 * Returns if the application has outstanding changes.
+	 * Returns if the data has outstanding changes.
 	 *
 	 * @return has changes
 	 */
@@ -34,7 +34,7 @@ public class Employees implements Application<Employee> {
 	}
 
 	/**
-	 * Pushes a list of {@link Employee} to the application.
+	 * Pushes a list of {@link Employee} to the data.
 	 *
 	 * @param employees the {@link Employee} list
 	 */

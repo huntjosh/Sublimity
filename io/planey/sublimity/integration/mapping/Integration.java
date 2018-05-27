@@ -1,7 +1,7 @@
 package io.planey.sublimity.integration.mapping;
 
 /**
- * Defines and runs mapping between applications.
+ * Defines and runs mapping between datas.
  *
  * @since 0.1
  * @author Josh Hunt

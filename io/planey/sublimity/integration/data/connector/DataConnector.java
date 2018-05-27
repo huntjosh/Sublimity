@@ -1,15 +1,17 @@
-package io.planey.sublimity.integration.application.connector;
+package io.planey.sublimity.integration.data.connector;
+
+import io.planey.sublimity.integration.data.Data;
 
 import java.util.List;
 
 /**
- * Connects to datasources and retrieves data for {@link io.planey.sublimity.integration.application.Application}s and
- * pushes data from {@link io.planey.sublimity.integration.application.Application}s.
+ * Connects to datasources and retrieves data for {@link Data}s and
+ * pushes data from {@link Data}s.
  *
  * @since 0.1
  * @author Josh Hunt
  */
-public interface Connector<T> {
+public interface DataConnector<T> {
 	/**
 	 * Returns if the datasource has outstanding changes.
 	 *

@@ -4,7 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 /**
- * A factory for creating data models based on application json results.
+ * A factory for creating data models based on data json results.
  *
  * @since 0.1
  * @author Josh Hunt

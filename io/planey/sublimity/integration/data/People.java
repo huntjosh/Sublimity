@@ -1,29 +1,29 @@
-package io.planey.sublimity.integration.application;
+package io.planey.sublimity.integration.data;
 
-import io.planey.sublimity.integration.application.connector.PeopleConnector;
+import io.planey.sublimity.integration.data.connector.PeopleDataConnector;
 import io.planey.sublimity.integration.datamodel.DataModelFactory;
 import io.planey.sublimity.integration.datamodel.Person;
 
 import java.util.List;
 
 /**
- * An {@link Application} that gets and posts {@link Person}s to the people application.
+ * An {@link Data} that gets and posts {@link Person}s to the people data.
  *
  * @since 0.1
  * @author Josh Hunt
  */
-public class People implements Application<Person> {
-	private final PeopleConnector peopleConnector;
+public class People implements Data<Person> {
+	private final PeopleDataConnector peopleConnector;
 
 	/**
-	 * Instantiates a people application, and grabs a {@link PeopleConnector}.
+	 * Instantiates a people data, and grabs a {@link PeopleDataConnector}.
 	 */
 	public People() {
-		peopleConnector = new PeopleConnector();
+		peopleConnector = new PeopleDataConnector();
 	}
 
 	/**
-	 * Returns if the application has outstanding changes.
+	 * Returns if the data has outstanding changes.
 	 *
 	 * @return has changes
 	 */
@@ -43,7 +43,7 @@ public class People implements Application<Person> {
 	}
 
 	/**
-	 * Pushes a list of {@link Person} to the application.
+	 * Pushes a list of {@link Person} to the data.
 	 *
 	 * @param people the {@link Person} list
 	 */

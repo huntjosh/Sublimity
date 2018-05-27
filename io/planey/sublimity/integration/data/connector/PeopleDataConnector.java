@@ -1,16 +1,16 @@
-package io.planey.sublimity.integration.application.connector;
+package io.planey.sublimity.integration.data.connector;
 
 import io.planey.sublimity.integration.datamodel.Person;
 
 import java.util.List;
 
 /**
- * A {@link Connector}s test stub
+ * A {@link DataConnector}s test stub
  *
  * @since 0.1
  * @author Josh Hunt
  */
-public class PeopleConnector implements Connector<Person> {
+public class PeopleDataConnector implements DataConnector<Person> {
 	@Override
 	public boolean hasChanges() {
 		return false;
