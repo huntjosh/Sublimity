@@ -34,7 +34,7 @@ Timer t = new Timer();
 t.scheduleAtFixedRate(integrationManager, 0, 100);
 ```
 
-##Creating new Integrations
+## Creating new Integrations
 * Create Connectors
 * Create DataModels
 * Create Applications using DataModels and Connectors
