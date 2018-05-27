@@ -9,6 +9,8 @@ Note: This project is still heavily under development and is only in early stage
 ## Example usage
 
 Single threaded
+<br>
+IntegrationRunner can take a list of integrations and will cycle through them
 ```java
 List<Integration> integrations = new ArrayList<>();
 integrations.add(new PeopleEmployee());
@@ -20,6 +22,9 @@ t.scheduleAtFixedRate(integrationRunner, 0, 1000);
 ```
 
 Multi threaded
+<br>
+IntegrationManagers take a single integration, but can have many workers running updates for the integration concurrently
+
 ```java
 IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), 
                                                                 new StubScheduleChecker(), 
