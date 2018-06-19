@@ -10,6 +10,6 @@ public class Main {
 		IntegrationManager integrationManager = new IntegrationManager(new PeopleEmployee(), new StubScheduleChecker(), new ConsoleLogger());
 		integrationManager.spawnWorkerPool(10);
 		Timer t = new Timer();
-		t.scheduleAtFixedRate(integrationManager, 0, 100);
+		t.scheduleAtFixedRate(integrationManager, 0, 1000);
 	}
 }

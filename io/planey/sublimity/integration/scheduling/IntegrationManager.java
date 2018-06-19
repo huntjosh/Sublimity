@@ -3,7 +3,7 @@ package io.planey.sublimity.integration.scheduling;
 import io.planey.logger.Logger;
 import io.planey.sublimity.integration.mapping.Integration;
 
-import java.util.ArrayList;
+import java.util.LinkedList;
 import java.util.List;
 import java.util.ListIterator;
 import java.util.TimerTask;
@@ -21,7 +21,7 @@ public class IntegrationManager extends TimerTask {
 	private final ScheduleChecker scheduleChecker;
 
 	private int workerCount = 0;
-	private List<Future> futures = new ArrayList<>();
+	private List<Future> futures = new LinkedList<>();
 	private ExecutorService executor;
 
 	/**
@@ -68,7 +68,8 @@ public class IntegrationManager extends TimerTask {
 	 * @return the number of slacking off workers
 	 */
 	private int freeWorkers() {
-		return workerCount - futures.size(); }
+		return workerCount - futures.size();
+	}
 
 	/**
 	 * Creates a number of integration run runnables which are added to the executor queue.
